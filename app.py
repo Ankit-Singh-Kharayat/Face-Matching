@@ -4,6 +4,23 @@ from deepface import DeepFace
 import os
 import shutil
 import json
+# Define the folder paths
+folders_to_create = ["./imageMedia", "./videoMedia", "./media"]
+
+# Function to create folders
+def create_folders(folder_paths):
+    for folder_path in folder_paths:
+        if not os.path.exists(folder_path):
+            try:
+                os.makedirs(folder_path)
+                print(f"Folder '{folder_path}' created successfully.")
+            except OSError as e:
+                print(f"Error: Failed to create folder '{folder_path}': {e}")
+        else:
+            print(f"Folder '{folder_path}' already exists.")
+
+# Create the folders
+create_folders(folders_to_create)
 
 # Path to the imageMedia folder
 imagemedia_folder_path = "./imageMedia/"
